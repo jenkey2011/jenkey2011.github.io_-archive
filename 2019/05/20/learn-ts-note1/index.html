@@ -14,23 +14,24 @@
     
     
     
-    <title>ts 基本数据类型 | 王其征的日志 | 记录我的前端学习之路</title>
+    <title>typescript 基本数据类型 | 王其征的日志 | 记录我的前端学习之路</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content>
+    <meta name="keywords" content="typescript">
     <meta name="description" content="布尔值最基础的数据类型 1let isDone: boolean = false; 数值支持十进制、十六进制，也支持ES6引入的二进制、八进制 123456789// 不同进制表示20的写法let decLiteral: number = 20;let hexLiteral: number = 0x14;let binaryLiteral: number = 0b10100;let octalLi">
+<meta name="keywords" content="typescript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ts 基本数据类型">
+<meta property="og:title" content="typescript 基本数据类型">
 <meta property="og:url" content="http://wangqizheng.win/2019/05/20/learn-ts-note1/index.html">
 <meta property="og:site_name" content="王其征的日志">
 <meta property="og:description" content="布尔值最基础的数据类型 1let isDone: boolean = false; 数值支持十进制、十六进制，也支持ES6引入的二进制、八进制 123456789// 不同进制表示20的写法let decLiteral: number = 20;let hexLiteral: number = 0x14;let binaryLiteral: number = 0b10100;let octalLi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-20T13:13:15.340Z">
+<meta property="og:updated_time" content="2019-05-20T13:14:39.838Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ts 基本数据类型">
+<meta name="twitter:title" content="typescript 基本数据类型">
 <meta name="twitter:description" content="布尔值最基础的数据类型 1let isDone: boolean = false; 数值支持十进制、十六进制，也支持ES6引入的二进制、八进制 123456789// 不同进制表示20的写法let decLiteral: number = 20;let hexLiteral: number = 0x14;let binaryLiteral: number = 0b10100;let octalLi">
     
         <link rel="alternate" type="application/atom+xml" title="王其征的日志" href="/atom.xml">
@@ -126,13 +127,13 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">ts 基本数据类型</div>
+        <div class="flex-col header-title ellipsis">typescript 基本数据类型</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -148,7 +149,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">ts 基本数据类型</h1>
+        <h1 class="title">typescript 基本数据类型</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-05-20T12:46:05.000Z" itemprop="datePublished" class="page-time">
@@ -179,7 +180,7 @@
 <article id="post-learn-ts-note1" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">ts 基本数据类型</h1>
+        <h1 class="post-card-title">typescript 基本数据类型</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-05-20 20:46:05" datetime="2019-05-20T12:46:05.000Z" itemprop="datePublished">2019-05-20</time>
 
@@ -200,11 +201,11 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不同进制表示20的写法</span></span><br><span class="line"><span class="keyword">let</span> decLiteral: number = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">let</span> hexLiteral: number = <span class="number">0x14</span>;</span><br><span class="line"><span class="keyword">let</span> binaryLiteral: number = <span class="number">0b10100</span>;</span><br><span class="line"><span class="keyword">let</span> octalLiteral: number = <span class="number">0o24</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// NaN 、 infinity，也属于number类型</span></span><br><span class="line"><span class="keyword">let</span> notANumber: number = <span class="literal">NaN</span>;</span><br><span class="line"><span class="keyword">let</span> infinityNumber: number = <span class="literal">Infinity</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串，引号、反引号，都可</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name: string = <span class="string">'Jenkey2011'</span>;</span><br><span class="line"><span class="keyword">let</span> greet: string = <span class="string">`Hello <span class="subst">$&#123;name&#125;</span>`</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="空值"><a href="#空值" class="headerlink" title="空值"></a>空值</h3><p>js中没有空值的概念，在ts中，可以用<code>void</code>表示没有任何返回值的函数</p>
+<h3 id="空值"><a href="#空值" class="headerlink" title="空值"></a>空值</h3><p>js中没有空值的概念，在typescript中，可以用<code>void</code>表示没有任何返回值的函数</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeter</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello Jenkey2011!'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>也可以声明一个<code>void</code>类型的变量，虽然实际上并没啥用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> useless: <span class="keyword">void</span> = <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> uselessToo: <span class="keyword">void</span> = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="null-和-undefined"><a href="#null-和-undefined" class="headerlink" title="null 和 undefined"></a>null 和 undefined</h3><p>ts中，可以使用<code>null</code> <code>undefined</code>来定义这两种原始数据类型</p>
+<h3 id="null-和-undefined"><a href="#null-和-undefined" class="headerlink" title="null 和 undefined"></a>null 和 undefined</h3><p>typescript中，可以使用<code>null</code> <code>undefined</code>来定义这两种原始数据类型</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uType: <span class="literal">undefined</span> = <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> nType: <span class="literal">null</span> = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
 <p>和上述<code>void</code>类型的区别是，<code>null</code>和<code>undefined</code>是左右类型的子类型，就是说，<code>undefined</code>可以赋值给<code>string</code>类型，而<code>void</code>不行</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不会报错</span></span><br><span class="line"><span class="keyword">let</span> num: number = <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">let</span> u: <span class="keyword">void</span>;</span><br><span class="line"><span class="keyword">let</span> num: number = u;</span><br></pre></td></tr></table></figure>
@@ -215,7 +216,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-05-20T13:13:15.340Z" itemprop="dateUpdated">2019-05-20 21:13:15</time>
+    最終更新：<time datetime="2019-05-20T13:14:39.838Z" itemprop="dateUpdated">2019-05-20 21:14:39</time>
 </span><br>
 
 
@@ -241,6 +242,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/">typescript</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -249,7 +252,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&title=《ts 基本数据类型》 — 王其征的日志&pic=http://wangqizheng.win/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&title=《typescript 基本数据类型》 — 王其征的日志&pic=http://wangqizheng.win/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -259,7 +262,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&title=《ts 基本数据类型》 — 王其征的日志&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&title=《typescript 基本数据类型》 — 王其征的日志&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -269,7 +272,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ts 基本数据类型》 — 王其征的日志&url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&via=http://wangqizheng.win" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《typescript 基本数据类型》 — 王其征的日志&url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&via=http://wangqizheng.win" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -402,7 +405,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -424,7 +427,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&title=《ts 基本数据类型》 — 王其征的日志&pic=http://wangqizheng.win/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&title=《typescript 基本数据类型》 — 王其征的日志&pic=http://wangqizheng.win/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -434,7 +437,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&title=《ts 基本数据类型》 — 王其征的日志&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&title=《typescript 基本数据类型》 — 王其征的日志&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -444,7 +447,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ts 基本数据类型》 — 王其征的日志&url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&via=http://wangqizheng.win" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《typescript 基本数据类型》 — 王其征的日志&url=http://wangqizheng.win/2019/05/20/learn-ts-note1/&via=http://wangqizheng.win" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
