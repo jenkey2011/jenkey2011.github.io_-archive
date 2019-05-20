@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SVG学习#day2 —— 文字路径(textPath)的应用 | 王其征的日志 | 记录我的前端学习之路</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="学习,SVG">
+    <meta name="description" content="本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去MDN SVG 教程  &amp;lt;path&amp;gt;元素是 SVG 基本形状中最强大的一个，它不仅能创建其他基本形状，还能创建更多其他形状。与之相似的还有一个&amp;lt;textPath&amp;gt;,顾名思义，就是文字路径，文字沿着路径排列~ 效果展示：【demo】">
+<meta name="keywords" content="学习,SVG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVG学习#day2 —— 文字路径(textPath)的应用">
+<meta property="og:url" content="http://wangqizheng.win/2017/07/09/SVG-study-2/index.html">
+<meta property="og:site_name" content="王其征的日志">
+<meta property="og:description" content="本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去MDN SVG 教程  &amp;lt;path&amp;gt;元素是 SVG 基本形状中最强大的一个，它不仅能创建其他基本形状，还能创建更多其他形状。与之相似的还有一个&amp;lt;textPath&amp;gt;,顾名思义，就是文字路径，文字沿着路径排列~ 效果展示：【demo】">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://wangqizheng.win/app/assets/images/2017/07/textpath2.gif">
+<meta property="og:image" content="http://wangqizheng.win/app/assets/images/2017/07/textpath1.png">
+<meta property="og:image" content="http://wangqizheng.win/app/assets/images/2017/07/textpath3.gif">
+<meta property="og:image" content="http://wangqizheng.win/app/assets/images/2017/07/textpath2.gif">
+<meta property="og:updated_time" content="2018-05-14T08:59:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVG学习#day2 —— 文字路径(textPath)的应用">
+<meta name="twitter:description" content="本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去MDN SVG 教程  &amp;lt;path&amp;gt;元素是 SVG 基本形状中最强大的一个，它不仅能创建其他基本形状，还能创建更多其他形状。与之相似的还有一个&amp;lt;textPath&amp;gt;,顾名思义，就是文字路径，文字沿着路径排列~ 效果展示：【demo】">
+<meta name="twitter:image" content="http://wangqizheng.win/app/assets/images/2017/07/textpath2.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="王其征的日志" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">王其征</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SVG学习#day2 —— 文字路径(textPath)的应用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SVG学习#day2 —— 文字路径(textPath)的应用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-07-09T05:34:56.000Z" itemprop="datePublished" class="page-time">
+  2017-07-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/demo/">demo</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效果展示："><span class="post-toc-number">1.</span> <span class="post-toc-text">效果展示：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#lt-textPath-gt-基本使用"><span class="post-toc-number">2.</span> <span class="post-toc-text">&lt;textPath&gt;基本使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用-startOffset-做一个文字移动动画"><span class="post-toc-number">3.</span> <span class="post-toc-text">利用 startOffset 做一个文字移动动画</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拓展"><span class="post-toc-number">4.</span> <span class="post-toc-text">拓展</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-SVG-study-2" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SVG学习#day2 —— 文字路径(textPath)的应用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-07-09 13:34:56" datetime="2017-07-09T05:34:56.000Z" itemprop="datePublished">2017-07-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/demo/">demo</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener">MDN SVG 教程</a></p>
+</blockquote>
+<p><code>&lt;path&gt;</code>元素是 SVG 基本形状中最强大的一个，它不仅能创建其他基本形状，还能创建更多其他形状。与之相似的还有一个<code>&lt;textPath&gt;</code>,顾名思义，就是文字路径，文字沿着路径排列~</p>
+<h2 id="效果展示："><a href="#效果展示：" class="headerlink" title="效果展示："></a>效果展示：</h2><p>【<strong><a href="/app/demo/SVG/path1.html">demo</a></strong>】<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/app/assets/images/2017/07/textpath2.gif" alt="文字沿指定路径排列" title>
+                </div>
+                <div class="image-caption">文字沿指定路径排列</div>
+            </figure></p>
+<a id="more"></a>
+<h2 id="lt-textPath-gt-基本使用"><a href="#lt-textPath-gt-基本使用" class="headerlink" title="&lt;textPath&gt;基本使用"></a><code>&lt;textPath&gt;</code>基本使用</h2><p>该元素利用它的 xlink:href 属性取得一个任意路径，把字符对齐到路径，于是字体会环绕路径、顺着路径走：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/app/assets/images/2017/07/textpath1.png" alt="基本使用" title>
+                </div>
+                <div class="image-caption">基本使用</div>
+            </figure>
+<p>核心代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"myPath1"</span> <span class="attr">fill</span>=<span class="string">'none'</span> <span class="attr">d</span>=<span class="string">"M.5,115.5c44.9-39.21,77.13-44,99-40,36.49,6.63,49.27,38.5,83,40,31.32,1.39,58.32-24.41,77-48"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">transform</span>=<span class="string">"translate(3 -50)"</span> <span class="attr">stroke</span>=<span class="string">"red"</span> <span class="attr">stroke-width</span>=<span class="string">"0.5"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span> <span class="attr">font-size</span>=<span class="string">"14"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- xlink:href="#myPath"  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textPath</span> <span class="attr">xlink:href</span>=<span class="string">"#myPath"</span> <span class="attr">startOffset</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line">      王其征的网络日志 wangqizheng.win</span><br><span class="line">    <span class="tag">&lt;/<span class="name">textPath</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="利用-startOffset-做一个文字移动动画"><a href="#利用-startOffset-做一个文字移动动画" class="headerlink" title="利用 startOffset 做一个文字移动动画"></a>利用 startOffset 做一个文字移动动画</h2><p><code>startOffset</code>文字距离顶端的偏移量，利用这个属性，可以做一个简单的动画，如图</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/app/assets/images/2017/07/textpath3.gif" alt="通过startOffset实现一个简单的动画" title>
+                </div>
+                <div class="image-caption">通过startOffset实现一个简单的动画</div>
+            </figure>
+<p>核心代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 259.72 68.86"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"myPath"</span> <span class="attr">class</span>=<span class="string">'a'</span> <span class="attr">d</span>=<span class="string">"M.5,115.5c44.9-39.21,77.13-44,99-40,36.49,6.63,49.27,38.5,83,40,31.32,1.39,58.32-24.41,77-48"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">transform</span>=<span class="string">"translate(3 -50)"</span> <span class="attr">stroke</span>=<span class="string">"red"</span> <span class="attr">stroke-width</span>=<span class="string">"2"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#MyPath"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">stroke</span>=<span class="string">"red"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"myPath1"</span> <span class="attr">fill</span>=<span class="string">'none'</span> <span class="attr">d</span>=<span class="string">"M.5,115.5c44.9-39.21,77.13-44,99-40,36.49,6.63,49.27,38.5,83,40,31.32,1.39,58.32-24.41,77-48"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">transform</span>=<span class="string">"translate(3 -50)"</span> <span class="attr">stroke</span>=<span class="string">"red"</span> <span class="attr">stroke-width</span>=<span class="string">"0.5"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span> <span class="attr">font-size</span>=<span class="string">"14"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textPath</span> <span class="attr">id</span>=<span class="string">"textpath"</span> <span class="attr">xlink:href</span>=<span class="string">"#myPath"</span> <span class="attr">startOffset</span>=<span class="string">"0%"</span>&gt;</span></span><br><span class="line">      王其征的网络日志 wangqizheng.win</span><br><span class="line">      <span class="tag">&lt;<span class="name">animate</span> <span class="attr">xlink:href</span>=<span class="string">"#textpath"</span> <span class="attr">attributeName</span>=<span class="string">"startOffset"</span> <span class="attr">from</span>=<span class="string">"-100%"</span> <span class="attr">to</span>=<span class="string">"100%"</span> <span class="attr">dur</span>=<span class="string">"15s"</span> <span class="attr">repeatCount</span>=<span class="string">"indefinite"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">textPath</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/app/assets/images/2017/07/textpath2.gif" alt="拖动锚点控制路径及文本" title>
+                </div>
+                <div class="image-caption">拖动锚点控制路径及文本</div>
+            </figure>
+<p>svg：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">id</span>=<span class="string">"drag"</span> <span class="attr">width</span>=<span class="string">"900"</span> <span class="attr">height</span>=<span class="string">"450"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 900 450"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"path"</span> <span class="attr">d</span>=<span class="string">"M51,158Q193,358 397,226Q601,94 845,263"</span> <span class="attr">fill</span>=<span class="string">"transparent"</span> <span class="attr">stroke-width</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">use</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span> <span class="attr">xlink:href</span>=<span class="string">"#path"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span> <span class="attr">stroke</span>=<span class="string">"none"</span> <span class="attr">font-size</span>=<span class="string">"26"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textPath</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span> <span class="attr">xlink:href</span>=<span class="string">"#path"</span> <span class="attr">startOffset</span>=<span class="string">"10%"</span>&gt;</span></span><br><span class="line">      王其征的网络日志 wangqizheng.win</span><br><span class="line">    <span class="tag">&lt;/<span class="name">textPath</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"51"</span> <span class="attr">cy</span>=<span class="string">"158"</span> <span class="attr">r</span>=<span class="string">"6"</span> <span class="attr">class</span>=<span class="string">"M"</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"193"</span> <span class="attr">cy</span>=<span class="string">"358"</span> <span class="attr">r</span>=<span class="string">"6"</span> <span class="attr">class</span>=<span class="string">"Q"</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"397"</span> <span class="attr">cy</span>=<span class="string">"226"</span> <span class="attr">r</span>=<span class="string">"6"</span> <span class="attr">class</span>=<span class="string">" "</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"601"</span> <span class="attr">cy</span>=<span class="string">"94"</span> <span class="attr">r</span>=<span class="string">"6"</span> <span class="attr">class</span>=<span class="string">"Q"</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"845"</span> <span class="attr">cy</span>=<span class="string">"263"</span> <span class="attr">r</span>=<span class="string">"6"</span> <span class="attr">class</span>=<span class="string">" "</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">"193"</span> <span class="attr">y1</span>=<span class="string">"358"</span> <span class="attr">x2</span>=<span class="string">"601"</span> <span class="attr">y2</span>=<span class="string">"94"</span>&gt;</span><span class="tag">&lt;/<span class="name">line</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>控制：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> svg = <span class="built_in">document</span>.querySelector(<span class="string">'svg'</span>)</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">document</span>.querySelector(<span class="string">'#path'</span>)</span><br><span class="line"><span class="keyword">var</span> line = <span class="built_in">document</span>.querySelector(<span class="string">'line'</span>)</span><br><span class="line"><span class="keyword">var</span> circles = <span class="built_in">document</span>.querySelectorAll(<span class="string">'circle'</span>)</span><br><span class="line"><span class="keyword">var</span> cry = []</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; circles.length; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;&#125;</span><br><span class="line">  o.x = <span class="built_in">Number</span>(circles[i].getAttribute(<span class="string">'cx'</span>))</span><br><span class="line">  o.y = <span class="built_in">Number</span>(circles[i].getAttribute(<span class="string">'cy'</span>))</span><br><span class="line">  o.class = circles[i].getAttribute(<span class="string">'class'</span>)</span><br><span class="line">  o.history = &#123;</span><br><span class="line">    x: o.x,</span><br><span class="line">    y: o.y</span><br><span class="line">  &#125;</span><br><span class="line">  cry.push(o)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> dragging = <span class="literal">false</span></span><br><span class="line"><span class="keyword">var</span> index</span><br><span class="line"><span class="keyword">var</span> m = &#123;</span><br><span class="line">  x: <span class="number">0</span>,</span><br><span class="line">  y: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">svg.addEventListener(</span><br><span class="line">  <span class="string">'mousedown'</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (evt.target.tagName == <span class="string">'circle'</span>) &#123;</span><br><span class="line">      dragging = evt.target</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">svg.addEventListener(</span><br><span class="line">  <span class="string">'mouseleave'</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    dragging = <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">svg.addEventListener(</span><br><span class="line">  <span class="string">'mousemove'</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (dragging) &#123;</span><br><span class="line">      m = oMousePos(svg, evt)</span><br><span class="line">      dragging.setAttributeNS(<span class="literal">null</span>, <span class="string">'cx'</span>, m.x)</span><br><span class="line">      dragging.setAttributeNS(<span class="literal">null</span>, <span class="string">'cy'</span>, m.y)</span><br><span class="line">      <span class="keyword">var</span> dPath = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; circles.length; i++) &#123;</span><br><span class="line">        cry[i].history.x = cry[i].x</span><br><span class="line">        cry[i].history.y = cry[i].y</span><br><span class="line">        cry[i].x = <span class="built_in">Number</span>(circles[i].getAttribute(<span class="string">'cx'</span>))</span><br><span class="line">        cry[i].y = <span class="built_in">Number</span>(circles[i].getAttribute(<span class="string">'cy'</span>))</span><br><span class="line">        <span class="keyword">if</span> (circles[i] == dragging) &#123;</span><br><span class="line">          index = i</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (index == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// 第一个控制点</span></span><br><span class="line">        <span class="keyword">var</span> dx1 = cry[<span class="number">1</span>].x - cry[<span class="number">2</span>].x</span><br><span class="line">        <span class="keyword">var</span> dy1 = cry[<span class="number">1</span>].y - cry[<span class="number">2</span>].y</span><br><span class="line">        cry[<span class="number">3</span>].x = cry[<span class="number">2</span>].x - dx1</span><br><span class="line">        cry[<span class="number">3</span>].y = cry[<span class="number">2</span>].y - dy1</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (index == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="comment">//中间的控制点</span></span><br><span class="line">        <span class="keyword">var</span> dx2 = m.x - cry[<span class="number">2</span>].history.x</span><br><span class="line">        <span class="built_in">console</span>.log(dx2)</span><br><span class="line">        <span class="keyword">var</span> dy2 = m.y - cry[<span class="number">2</span>].history.y</span><br><span class="line">        cry[<span class="number">1</span>].x = cry[<span class="number">1</span>].x + dx2</span><br><span class="line">        cry[<span class="number">1</span>].y = cry[<span class="number">1</span>].y + dy2</span><br><span class="line">        cry[<span class="number">3</span>].x = cry[<span class="number">3</span>].x + dx2</span><br><span class="line">        cry[<span class="number">3</span>].y = cry[<span class="number">3</span>].y + dy2</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (index == <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="comment">// 第二个控制点</span></span><br><span class="line">        <span class="keyword">var</span> dx3 = cry[<span class="number">3</span>].x - cry[<span class="number">2</span>].x</span><br><span class="line">        <span class="keyword">var</span> dy3 = cry[<span class="number">3</span>].y - cry[<span class="number">2</span>].y</span><br><span class="line">        cry[<span class="number">1</span>].x = cry[<span class="number">2</span>].x - dx3</span><br><span class="line">        cry[<span class="number">1</span>].y = cry[<span class="number">2</span>].y - dy3</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; circles.length; i++) &#123;</span><br><span class="line">        dPath += cry[i].class + cry[i].x + <span class="string">','</span> + cry[i].y</span><br><span class="line">        circles[i].setAttributeNS(<span class="literal">null</span>, <span class="string">'cx'</span>, cry[i].x)</span><br><span class="line">        circles[i].setAttributeNS(<span class="literal">null</span>, <span class="string">'cy'</span>, cry[i].y)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      path.setAttributeNS(<span class="literal">null</span>, <span class="string">'d'</span>, dPath)</span><br><span class="line">      line.setAttributeNS(<span class="literal">null</span>, <span class="string">'x1'</span>, cry[<span class="number">1</span>].x)</span><br><span class="line">      line.setAttributeNS(<span class="literal">null</span>, <span class="string">'y1'</span>, cry[<span class="number">1</span>].y)</span><br><span class="line">      line.setAttributeNS(<span class="literal">null</span>, <span class="string">'x2'</span>, cry[<span class="number">3</span>].x)</span><br><span class="line">      line.setAttributeNS(<span class="literal">null</span>, <span class="string">'y2'</span>, cry[<span class="number">3</span>].y)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">svg.addEventListener(</span><br><span class="line">  <span class="string">'mouseup'</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    dragging = <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">oMousePos</span>(<span class="params">elmt, evt</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ClientRect = elmt.getBoundingClientRect()</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    x: <span class="built_in">Math</span>.round(evt.clientX - ClientRect.left),</span><br><span class="line">    y: <span class="built_in">Math</span>.round(evt.clientY - ClientRect.top)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考 ： <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-05-14T08:59:54.000Z" itemprop="dateUpdated">2018-05-14 16:59:54</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/07/09/SVG-study-2/" target="_blank" rel="external">http://wangqizheng.win/2017/07/09/SVG-study-2/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wangqizheng.win">
+            <img src="/img/avatar.jpg" alt="王其征">
+            王其征
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVG/">SVG</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wangqizheng.win/2017/07/09/SVG-study-2/&title=《SVG学习#day2 —— 文字路径(textPath)的应用》 — 王其征的日志&pic=http://wangqizheng.win/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wangqizheng.win/2017/07/09/SVG-study-2/&title=《SVG学习#day2 —— 文字路径(textPath)的应用》 — 王其征的日志&source=
+本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去MDN SV..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wangqizheng.win/2017/07/09/SVG-study-2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SVG学习#day2 —— 文字路径(textPath)的应用》 — 王其征的日志&url=http://wangqizheng.win/2017/07/09/SVG-study-2/&via=http://wangqizheng.win" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wangqizheng.win/2017/07/09/SVG-study-2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/07/11/SVG-study-3/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SVG学习#day3 —— 文本与渐变</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/07/06/SVG-study-1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SVG学习#day1 —— 蒙版(mask)的使用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'c761948fe95fcc34a985',
+          clientSecret: 'b43aee63c82a47a19f9af1d30c58486ba5f85c09',
+          repo: 'jenkey2011.github.io',
+          owner: 'Jenkey2011',
+          admin: ['Jenkey2011'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>王其征 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wangqizheng.win/2017/07/09/SVG-study-2/&title=《SVG学习#day2 —— 文字路径(textPath)的应用》 — 王其征的日志&pic=http://wangqizheng.win/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wangqizheng.win/2017/07/09/SVG-study-2/&title=《SVG学习#day2 —— 文字路径(textPath)的应用》 — 王其征的日志&source=
+本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去MDN SV..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wangqizheng.win/2017/07/09/SVG-study-2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SVG学习#day2 —— 文字路径(textPath)的应用》 — 王其征的日志&url=http://wangqizheng.win/2017/07/09/SVG-study-2/&via=http://wangqizheng.win" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wangqizheng.win/2017/07/09/SVG-study-2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3aQW4EIQwF0bn/pTvbSDN06tskUeNiFTEEeL1ANub1wu361t77+fjaKtuaDBkyHsu4bttqDFn4fmRt3eWKMmTIGMAgm1iNT0cSHt+bDBkyZKQbSsNKTpIhQ4aM9MDlgSMJQ/nnkyFDxmQGSSb5MuTY/bdcXIYMGQ9k8E38/d+/Ut+QIUPGoxhX2NIklqepnSZDhoyzGfyAS9PUdB4+w/IKT4YMGWMY5PKrdmjytLb4HE2GDBkDGLXnFOmSpNjAr/w+HLgyZMg4jsEn5YVM9OVwOIj+S4YMGUczeGK5KzQkPbV+GTJknMroTJeWHjkgzUxlyJAxgUEus9B0eHztCm85jwwZMsYw7rfOCwZpElsrZ/7wZkSGDBnHMeKLrfA5Vzpn8aJNhgwZRzM6BUsCS8PN9KmZDBkyzmYEg9qHbL9ggN6MyJAhYxhj1xZrpYI49ZUhQ8YYRi2N7FyopYWHJVKGDBlHM2ohYI3HS5udAqoMGTLOY5Dt7vpO/HlZfBUoQ4aMAQy+rT4yLRKgUoEMGTIGMNLyQJxS3o7nq8f1WBkyZDyccYWNH4U80OTzL6kyZMg4mtE509Jf7wNNMp6XImTIkHEeo3PdtjdwbB24MmTIGMAgG6odr2kP/0wyZMiQkYZoaeCYFiSC+oYMGTLGM0gKymFp/3JmGTJkDGDwYkDnmmxXyipDhoxpjFbqWKo88DFpjwwZMo5jfAFqZGqYmu6GpgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
