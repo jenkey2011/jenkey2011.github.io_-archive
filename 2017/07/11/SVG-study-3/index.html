@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SVG学习#day3 —— 文本与渐变 | 王其征的日志 | 记录我的前端学习之路</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="学习,SVG">
+    <meta name="description" content="本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去MDN SVG 教程  除了了简单的纯色填充和描边，SVG 还允许我们在填充和描边上应用渐变色~ 文本搭配渐变，可以做出很多惊喜的效果~ 有两种类型的渐变：线性渐变和径向渐变。渐变内容需要定义在标签内部，而不是定义在形状上面，给渐变内容指定一个 id 属性，">
+<meta name="keywords" content="学习,SVG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVG学习#day3 —— 文本与渐变">
+<meta property="og:url" content="http://wangqizheng.win/2017/07/11/SVG-study-3/index.html">
+<meta property="og:site_name" content="王其征的日志">
+<meta property="og:description" content="本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去MDN SVG 教程  除了了简单的纯色填充和描边，SVG 还允许我们在填充和描边上应用渐变色~ 文本搭配渐变，可以做出很多惊喜的效果~ 有两种类型的渐变：线性渐变和径向渐变。渐变内容需要定义在标签内部，而不是定义在形状上面，给渐变内容指定一个 id 属性，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wangqizheng.win/app/assets/images/2017/07/gradients1.png">
+<meta property="og:image" content="http://wangqizheng.win/app/assets/images/2017/07/gradients2.png">
+<meta property="og:updated_time" content="2018-05-14T08:59:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVG学习#day3 —— 文本与渐变">
+<meta name="twitter:description" content="本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去MDN SVG 教程  除了了简单的纯色填充和描边，SVG 还允许我们在填充和描边上应用渐变色~ 文本搭配渐变，可以做出很多惊喜的效果~ 有两种类型的渐变：线性渐变和径向渐变。渐变内容需要定义在标签内部，而不是定义在形状上面，给渐变内容指定一个 id 属性，">
+<meta name="twitter:image" content="http://wangqizheng.win/app/assets/images/2017/07/gradients1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="王其征的日志" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">王其征</h5>
+          <a href="mailto:Jenkey2011@gmail.com" title="Jenkey2011@gmail.com" class="mail">Jenkey2011@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jenkey2011" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/747952150" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SVG学习#day3 —— 文本与渐变</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SVG学习#day3 —— 文本与渐变</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-07-11T06:39:37.000Z" itemprop="datePublished" class="page-time">
+  2017-07-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/demo/">demo</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看演示"><span class="post-toc-number">1.</span> <span class="post-toc-text">查看演示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线性渐变"><span class="post-toc-number">2.</span> <span class="post-toc-text">线性渐变</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#径向渐变"><span class="post-toc-number">3.</span> <span class="post-toc-text">径向渐变</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-SVG-study-3" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SVG学习#day3 —— 文本与渐变</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-07-11 14:39:37" datetime="2017-07-11T06:39:37.000Z" itemprop="datePublished">2017-07-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/demo/">demo</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener">MDN SVG 教程</a></p>
+</blockquote>
+<p>除了了简单的纯色填充和描边，SVG 还允许我们在填充和描边上应用渐变色~ 文本搭配渐变，可以做出很多惊喜的效果~</p>
+<p>有两种类型的渐变：<strong>线性渐变</strong>和<strong>径向渐变</strong>。渐变内容需要定义在<defs>标签内部，而不是定义在形状上面，给渐变内容指定一个 id 属性，使得</defs></p>
+<h2 id="查看演示"><a href="#查看演示" class="headerlink" title="查看演示"></a>查看演示</h2><p><strong><a href="/app/demo/gradients.html">demo</a></strong></p>
+<h2 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h2><p>线性渐变沿着直线方向上改变颜色，要插入一个线性渐变，你需要在 SVG 文件的 defs 元素内部，创建一个<code>&lt;linearGradient&gt;</code> 节点</p>
+<p>基本使用：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/app/assets/images/2017/07/gradients1.png" alt="文本线性渐变" title>
+                </div>
+                <div class="image-caption">文本线性渐变</div>
+            </figure>
+<a id="more"></a>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">id</span>=<span class="string">"gradient"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">linearGradient</span> <span class="attr">id</span>=<span class="string">"linearGradient"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"0%"</span> <span class="attr">stop-color</span>=<span class="string">"#15bcce"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"50%"</span> <span class="attr">stop-color</span>=<span class="string">"#fccf26"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"100%"</span> <span class="attr">stop-color</span>=<span class="string">"#f24949"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">linearGradient</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span> <span class="attr">y</span>=<span class="string">"75%"</span> <span class="attr">x</span>=<span class="string">'50%'</span> <span class="attr">fill-opacity</span>=<span class="string">"0.5"</span> <span class="attr">fill</span>=<span class="string">"url(#linearGradient)"</span> <span class="attr">text-anchor</span>=<span class="string">"middle"</span>&gt;</span>线性渐变<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h2><p>径向渐变与线性渐变相似，只是它是从一个点开始发散绘制渐变。要插入一个径向渐变，你需要在 SVG 文件的 defs 元素内部，创建一个<code>&lt;radialGradient&gt;</code> 节点</p>
+<p>基本使用：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/app/assets/images/2017/07/gradients2.png" alt="文本径向渐变" title>
+                </div>
+                <div class="image-caption">文本径向渐变</div>
+            </figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"750px"</span> <span class="attr">height</span>=<span class="string">"100px"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">radialGradient</span> <span class="attr">id</span>=<span class="string">"Gradient1"</span> <span class="attr">cy</span>=<span class="string">"60%"</span> <span class="attr">fx</span>=<span class="string">"45%"</span> <span class="attr">fy</span>=<span class="string">"45%"</span> <span class="attr">r</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"0%"</span> <span class="attr">class</span>=<span class="string">"flash"</span> <span class="attr">stop-color</span>=<span class="string">"green"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"50%"</span> <span class="attr">class</span>=<span class="string">"flash2"</span> <span class="attr">style</span>=<span class="string">"animation-delay: 1.5s"</span> <span class="attr">stop-color</span>=<span class="string">"blue"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">stop</span> <span class="attr">class</span>=<span class="string">"100%"</span> <span class="attr">class</span>=<span class="string">"flash"</span> <span class="attr">stop-color</span>=<span class="string">"red"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">radialGradient</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span> <span class="attr">y</span>=<span class="string">"75%"</span> <span class="attr">x</span>=<span class="string">'50%'</span> <span class="attr">text-anchor</span>=<span class="string">"middle"</span> <span class="attr">fill</span>=<span class="string">"url(#Gradient1)"</span>&gt;</span>径向渐变 <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-14T08:59:54.000Z" itemprop="dateUpdated">2018-05-14 16:59:54</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/07/11/SVG-study-3/" target="_blank" rel="external">http://wangqizheng.win/2017/07/11/SVG-study-3/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wangqizheng.win">
+            <img src="/img/avatar.jpg" alt="王其征">
+            王其征
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVG/">SVG</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wangqizheng.win/2017/07/11/SVG-study-3/&title=《SVG学习#day3 —— 文本与渐变》 — 王其征的日志&pic=http://wangqizheng.win/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wangqizheng.win/2017/07/11/SVG-study-3/&title=《SVG学习#day3 —— 文本与渐变》 — 王其征的日志&source=
+本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去MDN SV..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wangqizheng.win/2017/07/11/SVG-study-3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SVG学习#day3 —— 文本与渐变》 — 王其征的日志&url=http://wangqizheng.win/2017/07/11/SVG-study-3/&via=http://wangqizheng.win" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wangqizheng.win/2017/07/11/SVG-study-3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/07/16/SVG-study-4/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SVG学习#day4 —— 利用path制作签明效果</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/07/09/SVG-study-2/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SVG学习#day2 —— 文字路径(textPath)的应用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>王其征 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wangqizheng.win/2017/07/11/SVG-study-3/&title=《SVG学习#day3 —— 文本与渐变》 — 王其征的日志&pic=http://wangqizheng.win/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wangqizheng.win/2017/07/11/SVG-study-3/&title=《SVG学习#day3 —— 文本与渐变》 — 王其征的日志&source=
+本博客关于 SVG 的系列文章不是教程，只是在学习的时候，练练手的同时，展示一下小 demo，同事加强一下学习效果。想深入学习的同学，可以去MDN SV..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wangqizheng.win/2017/07/11/SVG-study-3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SVG学习#day3 —— 文本与渐变》 — 王其征的日志&url=http://wangqizheng.win/2017/07/11/SVG-study-3/&via=http://wangqizheng.win" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wangqizheng.win/2017/07/11/SVG-study-3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHklEQVR42u3aS27DMAwFwNz/0u62QBHnkXSLShqtisQfThasSOr1itf1Y33//P763ltev7EwMDCWZVy3K7nmHvMuxPl7MTAwTmMkQSTfJnf1nvYhZgwMDIxeEgxCT5IyBgYGRo9xT0oSbjX5YmBgYOQB9dph/6gWx8DAWJCRB/H3f//KfAMDA2MpxlVcedO/WqZOFgYGxt6MPMFVy9Tqc/InvP3hMDAwjmEk5euzRzHmI08MDIy9GXkDq7cRnA8YkusxMDD2ZiSB5hvB8iuLY9TyPBYDA+MARnVUUB1JTtJ3IeFiYGAszqi+stD8Kh62qN4VjTAxMDC2Y/Ra83mbbN7Ce/scDAyMYxh5u38SaDVZR3dhYGAcwHi1Vu8w2X2IeSFdPi2CgYGxOOPZln11qJC33h6ooTEwMBZkVAOdJNn5wOADGAMDY1NG3pTPS83JOKG5ucTAwNiaMVlJo+3hUWVyZgQDA2NTRnV8eP97zDd8jx25wMDA2I5RTZG97Vp1c1kYHmBgYBzAyPtzT5WpvaRf/r+BgYGxEWNSsvZg+dGKBzI9BgbGsoyruHol7iShR1QMDIytGfOclg8Gkm/zkUOzzMbAwFiWUU2ReZOuNzVtJlwMDIwDGHnh+myrrofEwMDAyLdoeRO/By5gMDAwMIJrknK3OsjMN68YGBgnMPJhQL4pzFNnL+FiYGCcw5gfyKgWpfk11U8wMDC2Y3wBrseTYQjEBSAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>高仿七喜官网导航效果 —— SVG动画导航 | 王其征的日志 | 记录我的前端学习之路</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="GSAP,svg动画">
+    <meta name="description" content="今天上午设计找我，说要正在设计一个大专题，想要一个动态的导航效果（如下图），问我能不能实现。我能怎么办，把网址都贴给我了，当然是能实现啊……  看了一下七喜的效果">
+<meta name="keywords" content="GSAP,svg动画">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高仿七喜官网导航效果 —— SVG动画导航">
+<meta property="og:url" content="http://wangqizheng.win/2017/06/08/7up-svg-nav/index.html">
+<meta property="og:site_name" content="王其征的日志">
+<meta property="og:description" content="今天上午设计找我，说要正在设计一个大专题，想要一个动态的导航效果（如下图），问我能不能实现。我能怎么办，把网址都贴给我了，当然是能实现啊……  看了一下七喜的效果">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wangqizheng.win/app/assets/images/7up2.gif">
+<meta property="og:image" content="http://wangqizheng.win/app/assets/images/7up.gif">
+<meta property="og:updated_time" content="2018-05-14T08:59:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高仿七喜官网导航效果 —— SVG动画导航">
+<meta name="twitter:description" content="今天上午设计找我，说要正在设计一个大专题，想要一个动态的导航效果（如下图），问我能不能实现。我能怎么办，把网址都贴给我了，当然是能实现啊……  看了一下七喜的效果">
+<meta name="twitter:image" content="http://wangqizheng.win/app/assets/images/7up2.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="王其征的日志" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">王其征</h5>
+          <a href="mailto:Jenkey2011@gmail.com" title="Jenkey2011@gmail.com" class="mail">Jenkey2011@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jenkey2011" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/747952150" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">高仿七喜官网导航效果 —— SVG动画导航</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">高仿七喜官网导航效果 —— SVG动画导航</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-08T05:05:46.000Z" itemprop="datePublished" class="page-time">
+  2017-06-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/demo/">demo</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一步-分析原网页-拿到关键-SVG"><span class="post-toc-number">1.</span> <span class="post-toc-text">第一步 分析原网页 拿到关键 SVG</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二部-思路"><span class="post-toc-number">2.</span> <span class="post-toc-text">第二部 思路</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#触发事件"><span class="post-toc-number">3.</span> <span class="post-toc-text">触发事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#完整代码"><span class="post-toc-number">4.</span> <span class="post-toc-text">完整代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-7up-svg-nav" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">高仿七喜官网导航效果 —— SVG动画导航</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-08 13:05:46" datetime="2017-06-08T05:05:46.000Z" itemprop="datePublished">2017-06-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/demo/">demo</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>今天上午设计找我，说要正在设计一个大专题，想要一个动态的导航效果（如下图），问我能不能实现。我能怎么办，把网址都贴给我了，当然是能实现啊……</p>
+<!-- [本 demo 地址](http://172.31.36.229/study/gsap/morphSVG.html) -->
+<p>看了一下<a href="http://www.7up.nl/producten/" target="_blank" rel="noopener">七喜的效果</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/app/assets/images/7up2.gif" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<a id="more"></a>
+<h3 id="第一步-分析原网页-拿到关键-SVG"><a href="#第一步-分析原网页-拿到关键-SVG" class="headerlink" title="第一步 分析原网页 拿到关键 SVG"></a>第一步 分析原网页 拿到关键 SVG</h3><p>分析源码发现，该效果由 GSAP 的<code>TweenMax</code>、<code>TimelineMax</code>和一个 SVG 变形插件<code>MorphSVGPlugin</code></p>
+<p>安利一下 <a href="https://greensock.com/gsap" target="_blank" rel="noopener">GSAP</a>，大名鼎鼎的动画库，学 flash 的同学更是人尽皆知。<a href="https://github.com/greensock/GreenSock-JS" target="_blank" rel="noopener">github 库</a>已经 6w+的星星了~</p>
+<ul>
+<li><code>TweenMax</code>: GSAP 的核心 js 库</li>
+<li><code>TimelineMax</code>: 实现时间轴，特别好用</li>
+<li><code>MorphSVGPlugin</code>: SVG 变形插件，收费的~ 额，我把 GSAP 一系列的收费插件都破解了，只为学习~</li>
+</ul>
+<p>首先拿到关键的 SVG:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">class</span>=<span class="string">"back"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span> <span class="attr">x</span>=<span class="string">"0px"</span> <span class="attr">y</span>=<span class="string">"0px"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 130 200"</span> <span class="attr">style</span>=<span class="string">"enable-background:new 0 0 130 200;"</span> <span class="attr">xml:space</span>=<span class="string">"preserve"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"back_4"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,39.1-66.8,56.7-66.8,105.1C63.2,139.7,130,154.1,130,200z"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"back_3"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,40.5-26.6,59.5-26.6,100C103.4,154.5,130,162.8,130,200z"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"back_2"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,31.9-13.7,57.8-13.7,100C116.3,137.6,130,173.6,130,200z"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"back_1"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,40.5,0,59.5,0,100C130,154.5,130,162.8,130,200z"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- white shape --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">class</span>=<span class="string">"front"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">x</span>=<span class="string">"0px"</span> <span class="attr">y</span>=<span class="string">"0px"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 130 200"</span> <span class="attr">style</span>=<span class="string">"enable-background:new 0 0 130 200;"</span> <span class="attr">xml:space</span>=<span class="string">"preserve"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"front_2"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,31.9-87.8,45.3-87.8,100C42.2,151.7,130,172,130,200z"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"front_1"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,31.9,0,57.8,0,100C130,137.6,130,173.6,130,200z"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="第二部-思路"><a href="#第二部-思路" class="headerlink" title="第二部 思路"></a>第二部 思路</h3><p>控制前景背景 SVG 的变形，关键代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">go</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  timeline.clear()</span><br><span class="line"></span><br><span class="line">  timeline</span><br><span class="line">    .to(</span><br><span class="line">      $back3,</span><br><span class="line">      <span class="number">0.5</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        morphSVG: &#123;</span><br><span class="line">          shape: $back2</span><br><span class="line">        &#125;,</span><br><span class="line">        ease: Back.easeInOut.config(<span class="number">2</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="number">0</span></span><br><span class="line">    )</span><br><span class="line">    .to(</span><br><span class="line">      $back3,</span><br><span class="line">      <span class="number">0.5</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        morphSVG: &#123;</span><br><span class="line">          shape: $back4</span><br><span class="line">        &#125;,</span><br><span class="line">        ease: Back.easeOut.config(<span class="number">2</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="number">0.45</span></span><br><span class="line">    )</span><br><span class="line">    .to(</span><br><span class="line">      $front1,</span><br><span class="line">      <span class="number">0.5</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        morphSVG: &#123;</span><br><span class="line">          shape: $front2</span><br><span class="line">        &#125;,</span><br><span class="line">        ease: Back.easeOut.config(<span class="number">2</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="number">0.45</span></span><br><span class="line">    )</span><br><span class="line">    .staggerTo(</span><br><span class="line">      $list,</span><br><span class="line">      <span class="number">0.1</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        left: <span class="number">-30</span>,</span><br><span class="line">        ease: Back.easeOut.config(<span class="number">2</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="number">0.1</span>,</span><br><span class="line">      <span class="number">0.3</span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">out</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  timeline.clear()</span><br><span class="line">  timeline</span><br><span class="line">    .staggerTo(</span><br><span class="line">      $list,</span><br><span class="line">      <span class="number">0.1</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        left: <span class="number">30</span>,</span><br><span class="line">        ease: Back.easeOut.config(<span class="number">2</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="number">-0.1</span></span><br><span class="line">    )</span><br><span class="line">    .to(</span><br><span class="line">      $front1,</span><br><span class="line">      <span class="number">0.35</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        morphSVG: &#123;</span><br><span class="line">          shape: $front1</span><br><span class="line">        &#125;,</span><br><span class="line">        ease: Back.easeInOut.config(<span class="number">2</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="number">0.3</span></span><br><span class="line">    )</span><br><span class="line">    .to(</span><br><span class="line">      $front2,</span><br><span class="line">      <span class="number">0.4</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        morphSVG: &#123;</span><br><span class="line">          shape: $front2</span><br><span class="line">        &#125;,</span><br><span class="line">        ease: Back.easeIn.config(<span class="number">2</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="number">0.5</span></span><br><span class="line">    )</span><br><span class="line">    .to(</span><br><span class="line">      $back3,</span><br><span class="line">      <span class="number">0.4</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        morphSVG: &#123;</span><br><span class="line">          shape: $back2</span><br><span class="line">        &#125;,</span><br><span class="line">        ease: Back.easeInOut.config(<span class="number">2</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="number">0.5</span></span><br><span class="line">    )</span><br><span class="line">    .to(</span><br><span class="line">      $back3,</span><br><span class="line">      <span class="number">0.4</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        morphSVG: &#123;</span><br><span class="line">          shape: $back3</span><br><span class="line">        &#125;,</span><br><span class="line">        ease: Back.easeOut.config(<span class="number">2</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="number">0.9</span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="触发事件"><a href="#触发事件" class="headerlink" title="触发事件"></a>触发事件</h3><p>鼠标移入一处导航时，触发事件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.list'</span>).hover(</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    go()</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    out()</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><p><a href="/app/demo/morphSVG.html">demo 展示</a><br><strong>最终效果:</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/app/assets/images/7up.gif" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>完整代码:</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://tools.people.cn/libs/jquery/1.11.1/jquery-1.11.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/gsap@1.20.4/src/minified/TweenMax.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/gsap@1.20.4/src/minified/TimelineMax.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../assets/js/GSAP/pro/MorphSVGPlugin.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    body &#123;</span></span><br><span class="line"><span class="undefined">      background: #f1f1f1;</span></span><br><span class="line"><span class="undefined">      overflow: hidden;</span></span><br><span class="line"><span class="undefined">      font-family: Arial, "Microsoft YaHei";</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    .test&#123;</span></span><br><span class="line"><span class="undefined">        width: 200px;</span></span><br><span class="line"><span class="undefined">        height: 200px;</span></span><br><span class="line"><span class="undefined">        background: red;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">        .nav&#123;</span></span><br><span class="line"><span class="undefined">            width: 100px;</span></span><br><span class="line"><span class="undefined">            height: 300px;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            right: 0;</span></span><br><span class="line"><span class="undefined">            top: 50%;</span></span><br><span class="line"><span class="undefined">            transform: translateY(-50%);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .nav .svgwrap&#123;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">            overflow:  hidden;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .nav ul&#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 50%;</span></span><br><span class="line"><span class="undefined">            right: -50px;</span></span><br><span class="line"><span class="undefined">            display: block;</span></span><br><span class="line"><span class="undefined">            width: auto;</span></span><br><span class="line"><span class="undefined">            transform: translateY(-50%);</span></span><br><span class="line"><span class="undefined">            cursor: pointer;</span></span><br><span class="line"><span class="undefined">            color: #000;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            width: 130px;</span></span><br><span class="line"><span class="undefined">            overflow:  hidden;</span></span><br><span class="line"><span class="undefined">            list-style: none</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .nav ul li&#123;</span></span><br><span class="line"><span class="undefined">            padding-left: 50px;</span></span><br><span class="line"><span class="undefined">            position: relative;</span></span><br><span class="line"><span class="undefined">            left: 30px;</span></span><br><span class="line"><span class="undefined">            margin-bottom: 20px;</span></span><br><span class="line"><span class="undefined">            transition: all .3s;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .nav ul li:hover&#123;</span></span><br><span class="line"><span class="undefined">            font-weight: bold;</span></span><br><span class="line"><span class="undefined">            color: #f20;</span></span><br><span class="line"><span class="undefined">            margin-left: -20px;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .nav ul li i&#123;</span></span><br><span class="line"><span class="undefined">            width: 5px;</span></span><br><span class="line"><span class="undefined">            height: 5px;</span></span><br><span class="line"><span class="undefined">            border:    1px solid #fff;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            left: 0;</span></span><br><span class="line"><span class="undefined">            top: 8px;</span></span><br><span class="line"><span class="undefined">            border-radius:50%;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        svg&#123;</span></span><br><span class="line"><span class="undefined">            height: 270%;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .back,.front&#123;</span></span><br><span class="line"><span class="undefined">            position: absolute;</span></span><br><span class="line"><span class="undefined">            top: 50%;</span></span><br><span class="line"><span class="undefined">            right: 0;</span></span><br><span class="line"><span class="undefined">            display: block;</span></span><br><span class="line"><span class="undefined">            width: auto;</span></span><br><span class="line"><span class="undefined">            transform: translateY(-50%);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .back path &#123;</span></span><br><span class="line"><span class="undefined">            fill: green;</span></span><br><span class="line"><span class="undefined">            display: none;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .front path&#123;</span></span><br><span class="line"><span class="undefined">            fill: #fff;</span></span><br><span class="line"><span class="undefined">            display: none;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">       .front &#123;</span></span><br><span class="line"><span class="undefined">            /* right: -112px; */</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            margin-top: -15px;</span></span><br><span class="line"><span class="undefined">            height: 200%;</span></span><br><span class="line"><span class="undefined">            /* width: 500px; */</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .back .back_3&#123;</span></span><br><span class="line"><span class="undefined">            display:   block;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .front .front_1&#123;</span></span><br><span class="line"><span class="undefined">            display:   block;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>仿七喜SVG动态导航<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"svgwrap"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">svg</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">class</span>=<span class="string">"back"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span> <span class="attr">x</span>=<span class="string">"0px"</span> <span class="attr">y</span>=<span class="string">"0px"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 130 200"</span> <span class="attr">style</span>=<span class="string">"enable-background:new 0 0 130 200;"</span> <span class="attr">xml:space</span>=<span class="string">"preserve"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"back_4"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,39.1-66.8,56.7-66.8,105.1C63.2,139.7,130,154.1,130,200z"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"back_3"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,40.5-26.6,59.5-26.6,100C103.4,154.5,130,162.8,130,200z"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"back_2"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,31.9-13.7,57.8-13.7,100C116.3,137.6,130,173.6,130,200z"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"back_1"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,40.5,0,59.5,0,100C130,154.5,130,162.8,130,200z"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- white shape --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">svg</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">class</span>=<span class="string">"front"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">x</span>=<span class="string">"0px"</span> <span class="attr">y</span>=<span class="string">"0px"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 130 200"</span> <span class="attr">style</span>=<span class="string">"enable-background:new 0 0 130 200;"</span> <span class="attr">xml:space</span>=<span class="string">"preserve"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"front_2"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,31.9-87.8,45.3-87.8,100C42.2,151.7,130,172,130,200z"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span> <span class="attr">class</span>=<span class="string">"front_1"</span> <span class="attr">d</span>=<span class="string">"M130,200V0c0,31.9,0,57.8,0,100C130,137.6,130,173.6,130,200z"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>关于<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>王其征<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>人民网<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> tm = TweenMax;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> timeline =  <span class="keyword">new</span> TimelineMax();</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> $list = $(<span class="string">".list li"</span>),</span></span><br><span class="line"><span class="javascript">            $front1 = $(<span class="string">".front_1"</span>),</span></span><br><span class="line"><span class="javascript">            $front2 = $(<span class="string">".front_2"</span>),</span></span><br><span class="line"><span class="javascript">            $back1 = $(<span class="string">".back_1"</span>),</span></span><br><span class="line"><span class="javascript">            $back2 = $(<span class="string">".back_2"</span>),</span></span><br><span class="line"><span class="javascript">            $back3 = $(<span class="string">".back_3"</span>),</span></span><br><span class="line"><span class="javascript">            $back4 = $(<span class="string">".back_4"</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">go</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">            timeline.clear();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            timeline.to($back3, .5, &#123;</span></span><br><span class="line"><span class="undefined">                morphSVG: &#123;</span></span><br><span class="line"><span class="undefined">                    shape: $back2</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                ease: Back.easeInOut.config(2)</span></span><br><span class="line"><span class="undefined">            &#125;, 0).to($back3, .5, &#123;</span></span><br><span class="line"><span class="undefined">                morphSVG: &#123;</span></span><br><span class="line"><span class="undefined">                    shape: $back4</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                ease: Back.easeOut.config(2)</span></span><br><span class="line"><span class="undefined">            &#125;, 0.45) .to($front1, .5, &#123;</span></span><br><span class="line"><span class="undefined">                morphSVG: &#123;</span></span><br><span class="line"><span class="undefined">                    shape: $front2</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                ease: Back.easeOut.config(2)</span></span><br><span class="line"><span class="undefined">            &#125;, 0.45).staggerTo($list,.1,&#123;</span></span><br><span class="line"><span class="undefined">                left:-30,</span></span><br><span class="line"><span class="undefined">                ease: Back.easeOut.config(2)</span></span><br><span class="line"><span class="undefined">            &#125;,0.1,0.3)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">out</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">            timeline.clear();</span></span><br><span class="line"><span class="undefined">            timeline.staggerTo($list,.1,&#123;</span></span><br><span class="line"><span class="undefined">                left:30,</span></span><br><span class="line"><span class="undefined">                 ease: Back.easeOut.config(2)</span></span><br><span class="line"><span class="undefined">            &#125;,-0.1).to($front1, .35, &#123;</span></span><br><span class="line"><span class="undefined">                morphSVG: &#123;</span></span><br><span class="line"><span class="undefined">                    shape: $front1</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                ease: Back.easeInOut.config(2)</span></span><br><span class="line"><span class="undefined">            &#125;, .3).to($front2, .4, &#123;</span></span><br><span class="line"><span class="undefined">                morphSVG: &#123;</span></span><br><span class="line"><span class="undefined">                    shape: $front2</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                ease: Back.easeIn.config(2)</span></span><br><span class="line"><span class="undefined">            &#125;, .5).to($back3, .4, &#123;</span></span><br><span class="line"><span class="undefined">                morphSVG: &#123;</span></span><br><span class="line"><span class="undefined">                    shape: $back2</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                ease: Back.easeInOut.config(2)</span></span><br><span class="line"><span class="undefined">            &#125;, .5).to($back3, .4, &#123;</span></span><br><span class="line"><span class="undefined">                morphSVG: &#123;</span></span><br><span class="line"><span class="undefined">                    shape:$back3</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                ease: Back.easeOut.config(2)</span></span><br><span class="line"><span class="undefined">            &#125;, .9)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        $(<span class="string">".list"</span>).hover(</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">                go();</span></span><br><span class="line"><span class="javascript">            &#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">                out()</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        )</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>本案例使用的核心文件是 MorphSVG.js，收费的，比较尴尬，我自己破解的，你下载下来也用不了……</li>
+<li>关于 GSAP，可以看我的相关教程</li>
+</ul>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-14T08:59:54.000Z" itemprop="dateUpdated">2018-05-14 16:59:54</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/06/08/7up-svg-nav/" target="_blank" rel="external">http://wangqizheng.win/2017/06/08/7up-svg-nav/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wangqizheng.win">
+            <img src="/img/avatar.jpg" alt="王其征">
+            王其征
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GSAP/">GSAP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg动画/">svg动画</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wangqizheng.win/2017/06/08/7up-svg-nav/&title=《高仿七喜官网导航效果 —— SVG动画导航》 — 王其征的日志&pic=http://wangqizheng.win/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wangqizheng.win/2017/06/08/7up-svg-nav/&title=《高仿七喜官网导航效果 —— SVG动画导航》 — 王其征的日志&source=今天上午设计找我，说要正在设计一个大专题，想要一个动态的导航效果（如下图），问我能不能实现。我能怎么办，把网址都贴给我了，当然是能实现啊……
+
+看了一下七..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wangqizheng.win/2017/06/08/7up-svg-nav/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《高仿七喜官网导航效果 —— SVG动画导航》 — 王其征的日志&url=http://wangqizheng.win/2017/06/08/7up-svg-nav/&via=http://wangqizheng.win" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wangqizheng.win/2017/06/08/7up-svg-nav/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/07/06/SVG-study-1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SVG学习#day1 —— 蒙版(mask)的使用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/01/gsap3/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">GreenSock动画教程3 =&gt; 缓动效果</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>王其征 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wangqizheng.win/2017/06/08/7up-svg-nav/&title=《高仿七喜官网导航效果 —— SVG动画导航》 — 王其征的日志&pic=http://wangqizheng.win/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wangqizheng.win/2017/06/08/7up-svg-nav/&title=《高仿七喜官网导航效果 —— SVG动画导航》 — 王其征的日志&source=今天上午设计找我，说要正在设计一个大专题，想要一个动态的导航效果（如下图），问我能不能实现。我能怎么办，把网址都贴给我了，当然是能实现啊……
+
+看了一下七..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wangqizheng.win/2017/06/08/7up-svg-nav/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《高仿七喜官网导航效果 —— SVG动画导航》 — 王其征的日志&url=http://wangqizheng.win/2017/06/08/7up-svg-nav/&via=http://wangqizheng.win" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wangqizheng.win/2017/06/08/7up-svg-nav/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3a0W7CMAwFUP7/p9nrJEa516GT2pw8TVCSHCYF2/HjEY/ny3h9/d3zs1UeZwwMDIzLMp6H4/iZ3+++m/ndFo/nz/eGgYGxDyPZxPEzyaeSI3u2LgYGBsZxuHYc0uXh4+wox8DAwGgZ+YGLgYGB0TLaNLUtjc0S1FNycQwMjAsy8k38/9+n3G9gYGBcivEsRz5Dm6bmh+wfa2FgYNyakR9weVi2nu62+8HAwNiB0aaas6gsXyu/VFjKmDEwMC7FOPsQzBPXvOT39ncDAwNjA0a7WL7dWUBZNHBgYGDcmpEfr22COiu3zV7HwMC4NyMJ0fKUdZYe50ls8X/AwMC4BWMWzLXU2VrFPBgYGJsx2hJYvnASbg4TYwwMjA0Yecq6cj2Zz/+FeiEGBsbtGPnULW+WoA47RDAwMLZhtM1heVVv/cIginAxMDA2YMyuEusjcuGqAAMDYzfGegvXSttEG4B++PowMDA2YLTJZ3vZWQd8LRIDA2MDRl7FOu9Ts0YNDAyMfRhtY1ZyndmW/qPtJr8bGBgYGzBmh2YykkaNZIaieoeBgXFxxrMcs6J/m7jW62JgYNya8a2Dsi3P5aW0tjCHgYFxV8ZK++nwunH0lX2YAQMDYwNG3lSRLzZrVF3KxTEwMDBGV5gr4LrohoGBgREXyNqrzeT1D09iYGBswEiS2FkhLDk6Vz6FgYGxA2OWOraNXCvtHW2ZDwMD40aMH0mQ2xmA5bD4AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
