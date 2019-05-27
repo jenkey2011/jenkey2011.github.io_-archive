@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>王其征的日志</title>
   
-  <subtitle>记录我的前端学习之路</subtitle>
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wangqizheng.win/"/>
